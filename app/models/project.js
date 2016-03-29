@@ -1,22 +1,22 @@
 var mongoose = require("mongoose");
 
-module.exports = mongoose.model('Lists', {
+module.exports = mongoose.model('Projects', {
 	queueNumber: {type: String},
 	queueLetter: {type: String},
-	aq: {type: Boolean},
-	counter: {type: Boolean},
+	aq: {type: String},
+	counter: {type: String},
 	projectName: {type: String},
-	mw: {type: Number},
-	attachNrecd: {
+	mw: {type: String},
+	attachNRecd: {
 		month : {type : Number},
-		date : {ttype : Number},
+		day : {type : Number},
 		year : {type : Number}
 	},
 	ce: {type: String},
 	gt: {type: String},
 	statusCode: {type: String},
-	mwc: {type: Number},
-	mwe: {type: Number},
+	mwc: {type: String},
+	mwe: {type: String},
 	remarks: {type: String},
 	inServiceDate: {
 		year : {type : Number},
@@ -41,6 +41,7 @@ module.exports = mongoose.model('Lists', {
 	csaFileName2: {type: String},
 	feasibilityStatus2: {type: String},
 	impactStatus2: {type: String},
+	facilityStatus2: {type: String},
 	isaStatus2: {type: String},
 	csaStatus2: {type: String},
 	transmissionOwner: {type: String},
@@ -52,8 +53,8 @@ module.exports = mongoose.model('Lists', {
 	ac: {type: String},
 	dc: {type: String},
 	attachmentType: {type: String},
-	STATUS: {type: String},
-	mwInservice: {type: String},
+	status: {type: String},
+	mwInService: {type: String},
 	revisedInServiceDate: {type: String},
-	isaFileNameUseAltFolder: {type: Boolean}
+	isaFileNameUseAltFolder: {type: String}
 });

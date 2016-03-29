@@ -8,11 +8,11 @@ var mongoose = require("mongoose");
 var bodyParser = require("body-parser");
 var methodOverride = require("method-override");
 
-// configuration
+//configuration
+var db = require("./config/db");
 var port = process.env.PORT || 8080;
-var mongoDbUrl = "mongodb://localhost/projects";
 
-mongoose.connect(mongoDbUrl);
+mongoose.connect(db.url);
 
 app.use(bodyParser.json());
 app.use(bodyParser.json({type: "application/vnd.api+json"}));
