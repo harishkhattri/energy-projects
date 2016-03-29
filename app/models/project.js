@@ -3,10 +3,10 @@ var mongoose = require("mongoose");
 module.exports = mongoose.model('Projects', {
 	queueNumber: {type: String},
 	queueLetter: {type: String},
-	aq: {type: String},
-	counter: {type: String},
+	aq: {type: Boolean},
+	counter: {type: Number},
 	projectName: {type: String},
-	mw: {type: String},
+	mw: {type: Number},
 	attachNRecd: {
 		month : {type : Number},
 		day : {type : Number},
