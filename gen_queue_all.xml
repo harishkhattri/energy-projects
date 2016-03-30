@@ -3385,12 +3385,12 @@
     <State>IL</State>
     <FeasibilityFileName>aa1078_fea.pdf</FeasibilityFileName>
     <ImpactFileName>aa1078_imp.pdf</ImpactFileName>
-    <FacilityFileName>empty.html</FacilityFileName>
+    <FacilityFileName />
     <ISAFileName>empty.html</ISAFileName>
     <CSAFileName>empty.html</CSAFileName>
     <FeasibilityStatus>green</FeasibilityStatus>
     <ImpactStatus>green</ImpactStatus>
-    <FacilityStatus>s</FacilityStatus>
+    <FacilityStatus>notrequired</FacilityStatus>
     <ISAStatus>s</ISAStatus>
     <CSAStatus>s</CSAStatus>
     <FeasibilityFileName2>empty.html</FeasibilityFileName2>
@@ -5832,12 +5832,12 @@
     <FuelType>solar</FuelType>
     <State>NJ</State>
     <FeasibilityFileName>aa2044_fea.pdf</FeasibilityFileName>
-    <ImpactFileName>empty.html</ImpactFileName>
+    <ImpactFileName>aa2044_imp.pdf</ImpactFileName>
     <FacilityFileName>empty.html</FacilityFileName>
     <ISAFileName>empty.html</ISAFileName>
     <CSAFileName>empty.html</CSAFileName>
     <FeasibilityStatus>green</FeasibilityStatus>
-    <ImpactStatus>clear</ImpactStatus>
+    <ImpactStatus>green</ImpactStatus>
     <FacilityStatus>s</FacilityStatus>
     <ISAStatus>s</ISAStatus>
     <CSAStatus>s</CSAStatus>
@@ -6694,17 +6694,17 @@
     <StatusCode>ACTIVE</StatusCode>
     <MWC>451</MWC>
     <MWE>451</MWE>
-    <Remarks>s</Remarks>
+    <Remarks />
     <InServiceDate>2018 Q2</InServiceDate>
     <FuelType>natural gas</FuelType>
     <State>DE</State>
     <FeasibilityFileName>aa2069_fea.pdf</FeasibilityFileName>
-    <ImpactFileName>empty.html</ImpactFileName>
+    <ImpactFileName>aa2069_imp.pdf</ImpactFileName>
     <FacilityFileName>empty.html</FacilityFileName>
     <ISAFileName>empty.html</ISAFileName>
     <CSAFileName>empty.html</CSAFileName>
     <FeasibilityStatus>green</FeasibilityStatus>
-    <ImpactStatus>clear</ImpactStatus>
+    <ImpactStatus>green</ImpactStatus>
     <FacilityStatus>s</FacilityStatus>
     <ISAStatus>s</ISAStatus>
     <CSAStatus>s</CSAStatus>
@@ -6724,8 +6724,8 @@
     <County>New Castle</County>
     <WMPAStatus>s</WMPAStatus>
     <ProjectType>s</ProjectType>
-    <AC>s</AC>
-    <DC>s</DC>
+    <AC />
+    <DC />
     <AttachmentType>N</AttachmentType>
     <Status>ACTIVE</Status>
     <MWInservice>s</MWInservice>
@@ -7459,19 +7459,19 @@
     <StatusCode>ACTIVE</StatusCode>
     <MWC>32</MWC>
     <MWE>0</MWE>
-    <Remarks>s</Remarks>
+    <Remarks />
     <InServiceDate>2018 Q2</InServiceDate>
     <FuelType>natural gas</FuelType>
     <State>NJ</State>
     <FeasibilityFileName>aa2099_fea.pdf</FeasibilityFileName>
     <ImpactFileName>aa2099_imp.pdf</ImpactFileName>
     <FacilityFileName>empty.html</FacilityFileName>
-    <ISAFileName>empty.html</ISAFileName>
+    <ISAFileName>aa2_099_isa2.pdf</ISAFileName>
     <CSAFileName>empty.html</CSAFileName>
     <FeasibilityStatus>green</FeasibilityStatus>
     <ImpactStatus>green</ImpactStatus>
     <FacilityStatus>clear</FacilityStatus>
-    <ISAStatus>s</ISAStatus>
+    <ISAStatus>yellow</ISAStatus>
     <CSAStatus>s</CSAStatus>
     <FeasibilityFileName2>empty.html</FeasibilityFileName2>
     <ImpactFileName2>empty.html</ImpactFileName2>
@@ -7489,8 +7489,8 @@
     <County>Middlesex</County>
     <WMPAStatus>s</WMPAStatus>
     <ProjectType>s</ProjectType>
-    <AC>s</AC>
-    <DC>s</DC>
+    <AC />
+    <DC />
     <AttachmentType>N</AttachmentType>
     <Status>ACTIVE</Status>
     <MWInservice>s</MWInservice>
@@ -9096,12 +9096,12 @@
     <FuelType>solar</FuelType>
     <State>MD</State>
     <FeasibilityFileName>aa2144_fea.pdf</FeasibilityFileName>
-    <ImpactFileName>empty.html</ImpactFileName>
+    <ImpactFileName>aa2144_imp.pdf</ImpactFileName>
     <FacilityFileName>empty.html</FacilityFileName>
     <ISAFileName>empty.html</ISAFileName>
     <CSAFileName>empty.html</CSAFileName>
     <FeasibilityStatus>green</FeasibilityStatus>
-    <ImpactStatus>clear</ImpactStatus>
+    <ImpactStatus>green</ImpactStatus>
     <FacilityStatus>s</FacilityStatus>
     <ISAStatus>s</ISAStatus>
     <CSAStatus>s</CSAStatus>
@@ -9249,12 +9249,12 @@
     <FuelType>solar</FuelType>
     <State>MD</State>
     <FeasibilityFileName>aa2147_fea.pdf</FeasibilityFileName>
-    <ImpactFileName>empty.html</ImpactFileName>
+    <ImpactFileName>aa2147_imp.pdf</ImpactFileName>
     <FacilityFileName>empty.html</FacilityFileName>
     <ISAFileName>empty.html</ISAFileName>
     <CSAFileName>empty.html</CSAFileName>
     <FeasibilityStatus>green</FeasibilityStatus>
-    <ImpactStatus>clear</ImpactStatus>
+    <ImpactStatus>green</ImpactStatus>
     <FacilityStatus>s</FacilityStatus>
     <ISAStatus>s</ISAStatus>
     <CSAStatus>s</CSAStatus>
@@ -9351,12 +9351,12 @@
     <FuelType>solar</FuelType>
     <State>MD</State>
     <FeasibilityFileName>aa2150_fea.pdf</FeasibilityFileName>
-    <ImpactFileName>empty.html</ImpactFileName>
+    <ImpactFileName>aa2150_imp.pdf</ImpactFileName>
     <FacilityFileName>empty.html</FacilityFileName>
     <ISAFileName>empty.html</ISAFileName>
     <CSAFileName>empty.html</CSAFileName>
     <FeasibilityStatus>green</FeasibilityStatus>
-    <ImpactStatus>clear</ImpactStatus>
+    <ImpactStatus>green</ImpactStatus>
     <FacilityStatus>s</FacilityStatus>
     <ISAStatus>s</ISAStatus>
     <CSAStatus>s</CSAStatus>
@@ -13984,10 +13984,10 @@
     <AttachNrecd>10/06/2015</AttachNrecd>
     <CE>E</CE>
     <GT>G</GT>
-    <StatusCode>ACTIVE</StatusCode>
+    <StatusCode>UC</StatusCode>
     <MWC>0</MWC>
     <MWE>0.85</MWE>
-    <Remarks>s</Remarks>
+    <Remarks />
     <InServiceDate>2016 Q4</InServiceDate>
     <FuelType>methane</FuelType>
     <State>OH</State>
@@ -14017,12 +14017,12 @@
     <County>Greene</County>
     <WMPAStatus>s</WMPAStatus>
     <ProjectType>s</ProjectType>
-    <AC>s</AC>
-    <DC>s</DC>
+    <AC />
+    <DC />
     <AttachmentType>Y</AttachmentType>
-    <Status>ACTIVE</Status>
+    <Status>UC</Status>
     <MWInservice>s</MWInservice>
-    <RevisedInServiceDate>s</RevisedInServiceDate>
+    <RevisedInServiceDate>2016-12-31T00:00:00-00:00</RevisedInServiceDate>
     <ISAFileNameUseAltFolder>0</ISAFileNameUseAltFolder>
   </TIPlanning>
   <TIPlanning>
@@ -15902,57 +15902,6 @@
     <DateSuspended>s</DateSuspended>
     <WithdrawlDate>s</WithdrawlDate>
     <County>Greenbrier</County>
-    <WMPAStatus>s</WMPAStatus>
-    <ProjectType>s</ProjectType>
-    <AC>s</AC>
-    <DC>s</DC>
-    <AttachmentType>N</AttachmentType>
-    <Status>ACTIVE</Status>
-    <MWInservice>s</MWInservice>
-    <RevisedInServiceDate>s</RevisedInServiceDate>
-    <ISAFileNameUseAltFolder>0</ISAFileNameUseAltFolder>
-  </TIPlanning>
-  <TIPlanning>
-    <QueueNumber>AB1-151</QueueNumber>
-    <QueueLetter>AB1</QueueLetter>
-    <AQ>false</AQ>
-    <Counter>0</Counter>
-    <ProjectName>Paupack 230kV</ProjectName>
-    <MW>575</MW>
-    <AttachNrecd>10/30/2015</AttachNrecd>
-    <CE>C</CE>
-    <GT>G</GT>
-    <StatusCode>ACTIVE</StatusCode>
-    <MWC>550</MWC>
-    <MWE>575</MWE>
-    <Remarks>s</Remarks>
-    <InServiceDate>2020 Q2</InServiceDate>
-    <FuelType>natural gas</FuelType>
-    <State>PA</State>
-    <FeasibilityFileName>ab1151_fea.pdf</FeasibilityFileName>
-    <ImpactFileName>empty.html</ImpactFileName>
-    <FacilityFileName>empty.html</FacilityFileName>
-    <ISAFileName>empty.html</ISAFileName>
-    <CSAFileName>empty.html</CSAFileName>
-    <FeasibilityStatus>green</FeasibilityStatus>
-    <ImpactStatus>s</ImpactStatus>
-    <FacilityStatus>s</FacilityStatus>
-    <ISAStatus>s</ISAStatus>
-    <CSAStatus>s</CSAStatus>
-    <FeasibilityFileName2>empty.html</FeasibilityFileName2>
-    <ImpactFileName2>empty.html</ImpactFileName2>
-    <FacilityFileName2>empty.html</FacilityFileName2>
-    <ISAFileName2>empty.html</ISAFileName2>
-    <CSAFileName2>empty.html</CSAFileName2>
-    <FeasibilityStatus2>s</FeasibilityStatus2>
-    <ImpactStatus2>s</ImpactStatus2>
-    <FacilityStatus2>s</FacilityStatus2>
-    <ISAStatus2>s</ISAStatus2>
-    <CSAStatus2>s</CSAStatus2>
-    <TransmissionOwner>PPL</TransmissionOwner>
-    <DateSuspended>s</DateSuspended>
-    <WithdrawlDate>s</WithdrawlDate>
-    <County>Wayne</County>
     <WMPAStatus>s</WMPAStatus>
     <ProjectType>s</ProjectType>
     <AC>s</AC>
@@ -19079,7 +19028,7 @@
     <QueueLetter>AB2</QueueLetter>
     <AQ>false</AQ>
     <Counter>0</Counter>
-    <ProjectName>Chase City-Halifax 115kV</ProjectName>
+    <ProjectName>Chase City 115kV</ProjectName>
     <MW>49.9</MW>
     <AttachNrecd>02/29/2016</AttachNrecd>
     <CE>C</CE>
@@ -31633,20 +31582,20 @@
     <StatusCode>UC</StatusCode>
     <MWC>9.7</MWC>
     <MWE>48.3</MWE>
-    <Remarks>s</Remarks>
-    <InServiceDate>2016 Q4</InServiceDate>
+    <Remarks />
+    <InServiceDate>2017 Q4</InServiceDate>
     <FuelType>wind</FuelType>
     <State>OH</State>
     <FeasibilityFileName>r48_fea.pdf</FeasibilityFileName>
     <ImpactFileName>r48_imp.pdf</ImpactFileName>
     <FacilityFileName>empty.html</FacilityFileName>
     <ISAFileName>r48_isa.pdf</ISAFileName>
-    <CSAFileName>empty.html</CSAFileName>
+    <CSAFileName>r48_csa.pdf</CSAFileName>
     <FeasibilityStatus>green</FeasibilityStatus>
     <ImpactStatus>green</ImpactStatus>
     <FacilityStatus>notrequired</FacilityStatus>
     <ISAStatus>green</ISAStatus>
-    <CSAStatus>s</CSAStatus>
+    <CSAStatus>green</CSAStatus>
     <FeasibilityFileName2>empty.html</FeasibilityFileName2>
     <ImpactFileName2>empty.html</ImpactFileName2>
     <FacilityFileName2>empty.html</FacilityFileName2>
@@ -31663,12 +31612,12 @@
     <County>Paulding</County>
     <WMPAStatus>s</WMPAStatus>
     <ProjectType>s</ProjectType>
-    <AC>s</AC>
-    <DC>s</DC>
+    <AC />
+    <DC />
     <AttachmentType>N</AttachmentType>
     <Status>UC</Status>
     <MWInservice>s</MWInservice>
-    <RevisedInServiceDate>2016-10-31T00:00:00-00:00</RevisedInServiceDate>
+    <RevisedInServiceDate>2017-11-30T00:00:00-00:00</RevisedInServiceDate>
     <ISAFileNameUseAltFolder>0</ISAFileNameUseAltFolder>
   </TIPlanning>
   <TIPlanning>
@@ -43768,10 +43717,10 @@
     <AttachNrecd>11/30/2009</AttachNrecd>
     <CE>C</CE>
     <GT>G</GT>
-    <StatusCode>UC</StatusCode>
+    <StatusCode>Suspended</StatusCode>
     <MWC>1.9</MWC>
     <MWE>5</MWE>
-    <Remarks>s</Remarks>
+    <Remarks />
     <InServiceDate>2016 Q4</InServiceDate>
     <FuelType>solar</FuelType>
     <State>VA</State>
@@ -43801,10 +43750,10 @@
     <County>Accomack</County>
     <WMPAStatus>s</WMPAStatus>
     <ProjectType>s</ProjectType>
-    <AC>s</AC>
-    <DC>s</DC>
+    <AC />
+    <DC />
     <AttachmentType>N</AttachmentType>
-    <Status>UC</Status>
+    <Status>Suspended</Status>
     <MWInservice>s</MWInservice>
     <RevisedInServiceDate>2016-11-30T00:00:00-00:00</RevisedInServiceDate>
     <ISAFileNameUseAltFolder>1</ISAFileNameUseAltFolder>
@@ -52387,7 +52336,7 @@
     <AttachNrecd>04/29/2011</AttachNrecd>
     <CE>C</CE>
     <GT>G</GT>
-    <StatusCode>UC-ISP</StatusCode>
+    <StatusCode>IS</StatusCode>
     <MWC>765</MWC>
     <MWE>850</MWE>
     <Remarks />
@@ -52423,8 +52372,8 @@
     <AC />
     <DC />
     <AttachmentType>N</AttachmentType>
-    <Status>UC-ISP</Status>
-    <MWInservice>425</MWInservice>
+    <Status>IS</Status>
+    <MWInservice>850</MWInservice>
     <RevisedInServiceDate>2016-02-29T00:00:00-00:00</RevisedInServiceDate>
     <ISAFileNameUseAltFolder>0</ISAFileNameUseAltFolder>
   </TIPlanning>
@@ -64324,19 +64273,19 @@
     <StatusCode>ACTIVE</StatusCode>
     <MWC>509</MWC>
     <MWE>568</MWE>
-    <Remarks>s</Remarks>
+    <Remarks />
     <InServiceDate>2018 Q2</InServiceDate>
     <FuelType>natural gas</FuelType>
     <State>NJ</State>
     <FeasibilityFileName>z2089_fea.pdf</FeasibilityFileName>
     <ImpactFileName>z2089_imp.pdf</ImpactFileName>
     <FacilityFileName>empty.html</FacilityFileName>
-    <ISAFileName>empty.html</ISAFileName>
+    <ISAFileName>z2_089_isa2.pdf</ISAFileName>
     <CSAFileName>empty.html</CSAFileName>
     <FeasibilityStatus>green</FeasibilityStatus>
     <ImpactStatus>green</ImpactStatus>
     <FacilityStatus>clear</FacilityStatus>
-    <ISAStatus>s</ISAStatus>
+    <ISAStatus>yellow</ISAStatus>
     <CSAStatus>s</CSAStatus>
     <FeasibilityFileName2>empty.html</FeasibilityFileName2>
     <ImpactFileName2>empty.html</ImpactFileName2>
@@ -64354,8 +64303,8 @@
     <County>Middlesex</County>
     <WMPAStatus>s</WMPAStatus>
     <ProjectType>s</ProjectType>
-    <AC>s</AC>
-    <DC>s</DC>
+    <AC />
+    <DC />
     <AttachmentType>N</AttachmentType>
     <Status>ACTIVE</Status>
     <MWInservice>s</MWInservice>
