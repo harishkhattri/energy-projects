@@ -1,0 +1,35 @@
+#chartdiv, .chart_wrapper {
+	width		: 50%;
+	height		: 500px;
+	font-size	: 11px;
+	float       : left;
+}
+
+#header{
+	margin-top: 10px;
+    font-style: italic;
+    margin-top:10px;
+    margin-left:36%
+}
+
+.amcharts-main-div a{
+	display:none !important;
+}
+ h2{
+ 	line-height: 2.111;
+ 	color:white;
+ }
+ 
+table {
+   border-collapse: collapse; 
+    width: 50%;
+}
+th {
+  background: #f8f8f8; 
+  font-weight: bold;    
+    padding: 2px;
+}
+ 
+table, td, th {
+    border: 1px solid black;
+}
