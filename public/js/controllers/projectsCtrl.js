@@ -5,7 +5,7 @@ angular.module('ProjectCtrl', []).controller('ProjectController', function($scop
 	//Total MW
 	$http.get('/projects/getTotalMW')
 	.success(function(data){
-		$scope.totalMW = Math.round(data[0].totalMW);
+		$scope.totalMW = data[0].totalMW.toFixed(2);
 	})
 	
 	.error(function(data) {
@@ -80,7 +80,11 @@ angular.module('ProjectCtrl', []).controller('ProjectController', function($scop
 	 //Top 3 states by highest MW
 	$http.get('/projects/getMWByState/5')
 	.success(function(data){
-		$scope.MWByState = [];
+		for (var i = 0; i < data.length; i++) {
+			data[i].totalMW = data[i].totalMW.toFixed(2);
+			data[i].percentage = ((data[i].totalMW / $scope.totalMW) * 100).toFixed(2);
+		}
+
 		$scope.MWByState = data;
 	})
 	
@@ -91,7 +95,6 @@ angular.module('ProjectCtrl', []).controller('ProjectController', function($scop
 	//Top 3 states by highest project count
 	$http.get('/projects/getCountByState/5')
 	.success(function(data){
-		$scope.projectByTop = [];
 		$scope.projectByTop = data;
 	})
 	
@@ -103,7 +106,11 @@ angular.module('ProjectCtrl', []).controller('ProjectController', function($scop
 	//Top 3 counties by highest MW
 	$http.get('/projects/getMWByCounty/5')
 	.success(function(data){
-		$scope.countyByTopMW = [];
+		for (var i = 0; i < data.length; i++) {
+			data[i].totalMW = data[i].totalMW.toFixed(2);
+			data[i].percentage = ((data[i].totalMW / $scope.totalMW) * 100).toFixed(2);
+		}
+		
 		$scope.countyByTopMW = data;
 	})
 	
@@ -114,7 +121,6 @@ angular.module('ProjectCtrl', []).controller('ProjectController', function($scop
 	//Top 3 counties by highest project count
 	$http.get('/projects/getCountByCounty/5')
 	.success(function(data){
-		$scope.CountByCounty = [];
 		$scope.CountByCounty = data;
 	})
 	
