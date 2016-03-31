@@ -5,7 +5,7 @@ angular.module('ProjectCtrl', []).controller('ProjectController', function($scop
 	//Total MW
 	$http.get('/projects/getTotalMW')
 	.success(function(data){
-		$scope.totalMW = data[0].totalMW;
+		$scope.totalMW = Math.round(data[0].totalMW);
 	})
 	
 	.error(function(data) {
@@ -78,14 +78,48 @@ angular.module('ProjectCtrl', []).controller('ProjectController', function($scop
 	
 	
 	 //Top 3 states by highest MW
-	/*$http.get('/projects/getMWByState/:3')
+	$http.get('/projects/getMWByState/5')
 	.success(function(data){
 		$scope.MWByState = [];
-		console.log(data);
+		$scope.MWByState = data;
 	})
 	
 	.error(function(data) {
 			console.log('Error: ' + data);
-	 });*/
+	 });
+	
+	//Top 3 states by highest project count
+	$http.get('/projects/getCountByState/5')
+	.success(function(data){
+		$scope.projectByTop = [];
+		$scope.projectByTop = data;
+	})
+	
+	.error(function(data) {
+			console.log('Error: ' + data);
+	 });
+	
+	
+	//Top 3 counties by highest MW
+	$http.get('/projects/getMWByCounty/5')
+	.success(function(data){
+		$scope.countyByTopMW = [];
+		$scope.countyByTopMW = data;
+	})
+	
+	.error(function(data) {
+			console.log('Error: ' + data);
+	 });
+	
+	//Top 3 counties by highest project count
+	$http.get('/projects/getCountByCounty/5')
+	.success(function(data){
+		$scope.CountByCounty = [];
+		$scope.CountByCounty = data;
+	})
+	
+	.error(function(data) {
+			console.log('Error: ' + data);
+	 });
 
 });

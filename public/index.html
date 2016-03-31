@@ -25,31 +25,82 @@
 </head>
 
 <body ng-app = "energy_project" ng-controller = "ProjectController">
-<div style="margin-top: -10px;">  <div style="background-color:#2E64FE;"><h2 id="header"> Mercatus Analytics Dashboard </h2></div>
+<header style="margin-top: -10px;">  <div style="background-color:#2E64FE;"><h2 class="header"> Mercatus Analytics Dashboard </h2></div></header>
 
-		<div><h4>Total MW</h4>
-			<div>{{totalMW}}</div>
+
+		<div class ="mw_header"><h4>Total MW : {{totalMW}}</h4>
 		</div>
 
-		<div id="chart"><h4 id="header" style="margin-left:11%;">Fuel Type by MW(%)</h4>
+	<section style="float:left;width:50%">
+	
+		<div id="chart"><h4 class="header" style="margin-left:11%;">Fuel Type by MW(%)</h4>
 			<div id="chartdiv"> </div>
 		</div>
 		
-		<div id="chart2"><h4 id="header2" style="margin-left:66%;">Status by MW(%)</h4>
-			<div id="chartdiv2" class="chart_wrapper"> </div>
-		</div> 
-		
 		<div>
-			<table>
+		    <h4 class="header" style="margin-left:6%;">Total MW by State</h4>
+			<table style=" width:80%">
 			    <tr>
-			        <th>Status</th>
-			        <th>MW</th>
+			        <th>State</th>
+			        <th>Total MW for State</th>
 			    </tr>
-			    <tr ng-repeat="person in MWByStatus">
-			        <td>{{person.status}}</td>
-			        <td>{{person.percentage}}</td>
+			    <tr ng-repeat="data in MWByState">
+			        <td>{{data.state}}</td>
+			        <td>{{data.totalMW}}</td>
 			    </tr>
 			</table>
 		</div>
-</div>
+		
+		<div>
+		    <h4 class="header" style="margin-left:6%;">Top 5 counties by highest MW</h4>
+			<table style=" width:80%">
+			    <tr>
+			        <th>County</th>
+			        <th>Top Count for MW</th>
+			    </tr>
+			    <tr ng-repeat="data in countyByTopMW">
+			        <td>{{data.county}}</td>
+			        <td>{{data.totalMW}}</td>
+			    </tr>
+			</table>
+		</div>
+		
+	</section>
+	
+	<section style="float:right;width:50%"> 
+		
+		<div id="chart2"><h4 class="header" style="margin-left:6%">Status by MW(%)</h4>
+			<div id="chartdiv2" class="chart_wrapper"> </div>
+		</div> 
+		
+		
+		<div>
+		    <h4 class="header" style="margin-left:11%;">Project Count for State</h4>
+			<table style=" width:80%;margin-left:6%;">
+			    <tr>
+			        <th>State</th>
+			        <th>Project Count for State</th>
+			    </tr>
+			    <tr ng-repeat="data in projectByTop">
+			        <td>{{data.state}}</td>
+			        <td>{{data.count}}</td>
+			    </tr>
+			</table>
+		</div>
+		
+		<div>
+		    <h4 class="header" style="margin-left:11%;">Top 5 Project Count for Count</h4>
+			<table style=" width:80%;;margin-left:6%;">
+			    <tr>
+			        <th>County</th>
+			        <th>Project Count</th>
+			    </tr>
+			    <tr ng-repeat="data in CountByCounty">
+			        <td>{{data.county}}</td>
+			        <td>{{data.count}}</td>
+			    </tr>
+			</table>
+		</div>
+		
+	</section>
 </body>
