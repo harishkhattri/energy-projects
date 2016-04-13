@@ -14,7 +14,7 @@ module.exports = function(app) {
 	app.get('/projects/getTotalMW', function(request, response) {
 		Projects.aggregate(
 				{ $match: {status: {$nin: ["Cancelled", "Suspended"]}} },
-				{ $group: {_id: null, totalMW: {$sum: "$mw"} } },
+				{ $group: {_id: null, totalMW: {$sum: "$mw"}, count: {$sum: 1} } },
 				function(error, result) {
 					if (error) {
 						response.send(error);

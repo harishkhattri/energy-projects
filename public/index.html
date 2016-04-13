@@ -28,37 +28,54 @@
 <header style="margin-top: -10px;">  <div style="background-color:#2E64FE;"><h2 class="header"> Mercatus Analytics Dashboard </h2></div></header>
 
 
-		<div class ="mw_header border"><h4>Total MW : {{totalMW}}</h4>
+		<div class ="mw_header"><h4>Total MW : {{totalMW}}</h4><h4>Total Projects : {{totalCount}}</h4>
 		</div>
 
-	<section style="float:left;width:50%">
+	<section style="float:left;width:45%">
 	
-		<div id="chart" class="border"><h4 class="header" style="margin-left:11%;">Fuel Type by MW(%)</h4>
+		<div id="chart"><h4 class="header" style="background: #2E64FE;color:white;">Fuel Type by MW(in %)</h4>
 			<div id="chartdiv"> </div>
 		</div>
 		
-		<div class="border">
-		    <h4 class="header" style="margin-left:6%;">Top 5 States by Highest MW</h4>
+		
+		<div style="border:1px solid #2E64FE; margin-top: 10%;">
+		    <h4 class="header" style="background: #2E64FE;color:white;">Fuel Type by MW</h4>
 			<table style=" width:80%">
 			    <tr>
+			        <th>Fuel Type</th>
+			        <th>MW</th>
+			        <th>MW(in %)</th>
+			    </tr>
+			    <tr ng-repeat="data in MWByFuelType">
+			        <td>{{data.fuelType}}</td>
+			        <td>{{data.actualMW}}</td>
+			         <td>{{data.percentage}}</td>
+			    </tr>
+			</table>
+		</div>
+		
+		<div style="border:1px solid #2E64FE;margin-top: 3%;">
+		    <h4 class="header" style="background: #2E64FE;color:white;">Total MW by State</h4>
+			<table style="width:80%">
+			    <tr>
 			        <th>State</th>
-			        <th>Total MW</th>
+			        <th>Total MW for State</th>
 			        <th>MW (in %)</th>
 			    </tr>
 			    <tr ng-repeat="data in MWByState">
 			        <td>{{data.state}}</td>
 			        <td>{{data.totalMW}}</td>
-			        <td>{{data.percentage}}</td>
+			         <td>{{data.percentage}}</td>
 			    </tr>
 			</table>
 		</div>
 		
-		<div class="border">
-		    <h4 class="header" style="margin-left:6%;">Top 5 Counties by Highest MW</h4>
+		<div style="border:1px solid #2E64FE;margin-top: 3%;">
+		    <h4 class="header" style="background: #2E64FE;color:white;">Top 5 counties by highest MW</h4>
 			<table style=" width:80%">
 			    <tr>
 			        <th>County</th>
-			        <th>Total MW</th>
+			        <th>Top Count for MW</th>
 			        <th>MW (in %)</th>
 			    </tr>
 			    <tr ng-repeat="data in countyByTopMW">
@@ -71,19 +88,36 @@
 		
 	</section>
 	
-	<section style="float:right;width:50%"> 
+	<section style="float:right;width:47%"> 
 		
-		<div id="chart2" class="border"><h4 class="header" style="margin-left:6%">Status by MW(%)</h4>
+		<div id="chart2"><h4 class="header" style="background: #2E64FE;color:white;padding: 10px 0 10px 40%;">Status by MW(%)</h4>
 			<div id="chartdiv2" class="chart_wrapper"> </div>
 		</div> 
 		
 		
-		<div class="border">
-		    <h4 class="header" style="margin-left:11%;">Top 5 States by Highest Count</h4>
+		<div style="border:1px solid #2E64FE; margin-top: 10%;">
+		    <h4 class="header" style="background: #2E64FE;color:white;">Status by MW</h4>
+			<table style=" width:80%;margin-left:6%;">
+			    <tr>
+			        <th>Status</th>
+			        <th>MW</th>
+			        <th>MW(in %)</th>
+			    </tr>
+			    <tr ng-repeat="data in MWByStatus">
+			        <td>{{data.status}}</td>
+			        <td>{{data.actualMW}}</td>
+			         <td>{{data.percentage}}</td>
+			    </tr>
+			</table>
+		</div>
+		
+		
+		<div style="margin-top: 29%;border:1px solid #2E64FE">
+		    <h4 class="header" style="background: #2E64FE;color:white;">Project Count for State</h4>
 			<table style=" width:80%;margin-left:6%;">
 			    <tr>
 			        <th>State</th>
-			        <th>Project Count</th>
+			        <th>Project Count for State</th>
 			    </tr>
 			    <tr ng-repeat="data in projectByTop">
 			        <td>{{data.state}}</td>
@@ -92,8 +126,8 @@
 			</table>
 		</div>
 		
-		<div class="border">
-		    <h4 class="header" style="margin-left:11%;">Top 5 Counties by Highest Count</h4>
+		<div style="border:1px solid #2E64FE;margin-top: 3%;">
+		    <h4 class="header" style="background: #2E64FE;color:white;">Top 5 Project Count for Count</h4>
 			<table style=" width:80%;;margin-left:6%;">
 			    <tr>
 			        <th>County</th>
