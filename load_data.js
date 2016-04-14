@@ -9,8 +9,8 @@ var Projects = require("./app/models/project");
 request.download({
 		url: 'http://www.pjm.com/pub/account/gen-queues/gen_queue_all.xml',
 		destPath: __dirname + "/gen_queue_all.xml"
-	}, function(error, response, body, destPath) {
-		fs.readFile(__dirname + "/gen_queue_all.xml", function(error, data) {
+	}, function(err, response, body, destPath) {
+		fs.readFile(destPath, function(error, data) {
 			if (error) {
 				console.log("File not found.");
 				return;
@@ -100,7 +100,7 @@ request.download({
 				
 				mongoose.connect(db.url);
 
-				Projects.create(allProjectsData, function(error, project) {
+				Projects.create(allProjectsData, function(error, projects) {
 					if (error) {
 						console.log("Database error.\n" + error.message);
 						mongoose.disconnect();
@@ -109,7 +109,32 @@ request.download({
 					
 					console.log("Data is successfully entered in database.");
 					mongoose.disconnect();
+					
+					downloadPdfData(projects);
 				});
 			});
 		});
 	});
+
+var downloadPdfData = function(projects) {
+	for (var i = 0; i < projects.length; i++) {
+		var pdfUrl = "http://www.pjm.com/pub/planning/project-queues/";
+		var destinationPath = __dirname + "/pdfData/isa";
+		var project = projects[i];
+		
+		if (project.isaStatus === 'green' || project.isaStatus === 'yellow') {
+			pdfUrl += "isa/" + project.isaFileName;
+		} else if (project.isaStatus === 'wmpa') {
+			pdfUrl += "wmpa/" + project.isaFileName;
+		} else {
+			pdfUrl = "";
+		}
+		
+		if (pdfUrl !== "") {
+			request.download({
+				url: pdfUrl,
+				destPath: __dirname + "/pdfData/isa/" + project.isaFileName
+			}, function(err, response, body, destPath) {});
+		}
+	}
+};
