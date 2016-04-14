@@ -56,5 +56,10 @@ module.exports = mongoose.model('Projects', {
 	status: {type: String},
 	mwInService: {type: String},
 	revisedInServiceDate: {type: String},
-	isaFileNameUseAltFolder: {type: String}
+	isaFileNameUseAltFolder: {type: String},
+	dataEntryDate: {
+		month : {type : Number},
+		day : {type : Number},
+		year : {type : Number}
+	}
 });
