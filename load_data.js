@@ -110,31 +110,31 @@ request.download({
 					console.log("Data is successfully entered in database.");
 					mongoose.disconnect();
 					
-					downloadPdfData(projects);
+//					downloadPdfData(projects);
 				});
 			});
 		});
 	});
 
-var downloadPdfData = function(projects) {
-	for (var i = 0; i < projects.length; i++) {
-		var pdfUrl = "http://www.pjm.com/pub/planning/project-queues/";
-		var destinationPath = __dirname + "/pdfData/isa";
-		var project = projects[i];
-		
-		if (project.isaStatus === 'green' || project.isaStatus === 'yellow') {
-			pdfUrl += "isa/" + project.isaFileName;
-		} else if (project.isaStatus === 'wmpa') {
-			pdfUrl += "wmpa/" + project.isaFileName;
-		} else {
-			pdfUrl = "";
-		}
-		
-		if (pdfUrl !== "") {
-			request.download({
-				url: pdfUrl,
-				destPath: __dirname + "/pdfData/isa/" + project.isaFileName
-			}, function(err, response, body, destPath) {});
-		}
-	}
-};
+//var downloadPdfData = function(projects) {
+//	for (var i = 0; i < projects.length; i++) {
+//		var pdfUrl = "http://www.pjm.com/pub/planning/project-queues/";
+//		var destinationPath = __dirname + "/pdfData/isa";
+//		var project = projects[i];
+//		
+//		if (project.isaStatus === 'green' || project.isaStatus === 'yellow') {
+//			pdfUrl += "isa/" + project.isaFileName;
+//		} else if (project.isaStatus === 'wmpa') {
+//			pdfUrl += "wmpa/" + project.isaFileName;
+//		} else {
+//			pdfUrl = "";
+//		}
+//		
+//		if (pdfUrl !== "") {
+//			request.download({
+//				url: pdfUrl,
+//				destPath: __dirname + "/pdfData/isa/" + project.isaFileName
+//			}, function(err, response, body, destPath) {});
+//		}
+//	}
+//};
