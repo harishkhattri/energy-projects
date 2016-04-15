@@ -3,7 +3,7 @@
 angular.module('ProjectCtrl', []).controller('ProjectController', function($scope, $http) {
 	
 	//Total MW
-	$http.get('/projects/getTotalMW')
+	$http.get('/projects/getTotalMW/15/4/2016')
 	.success(function(data){
 		$scope.totalMW = data[0].totalMW.toFixed(2);
 		$scope.totalCount = data[0].count;
@@ -16,7 +16,7 @@ angular.module('ProjectCtrl', []).controller('ProjectController', function($scop
 	
 	var getAnalytics = function() {
 		//MW by Fuel Type
-		$http.get('/projects/getMWByFuelType')
+		$http.get('/projects/getMWByFuelType/15/4/2016')
 		.success(function(data){
 			$scope.MWByFuelType = [];
 			for (var i = 0; i < data.length; i++ ){
@@ -49,7 +49,7 @@ angular.module('ProjectCtrl', []).controller('ProjectController', function($scop
 		
 		
 		//MW by Status
-		$http.get('/projects/getMWByStatus')
+		$http.get('/projects/getMWByStatus/15/4/2016')
 		.success(function(data){
 			$scope.MWByStatus = [];
 			for (var i = 0; i < data.length; i++ ){
@@ -83,7 +83,7 @@ angular.module('ProjectCtrl', []).controller('ProjectController', function($scop
 		
 		
 		 //Top 5 states by highest MW
-		$http.get('/projects/getMWByState/5')
+		$http.get('/projects/getMWByState/5/15/4/2016')
 		.success(function(data){
 			for (var i = 0; i < data.length; i++) {
 				data[i].totalMW = data[i].totalMW.toFixed(2);
@@ -98,7 +98,7 @@ angular.module('ProjectCtrl', []).controller('ProjectController', function($scop
 		 });
 		
 		//Top 5 states by highest project count
-		$http.get('/projects/getCountByState/5')
+		$http.get('/projects/getCountByState/5/15/4/2016')
 		.success(function(data){
 			$scope.projectByTop = data;
 		})
@@ -109,7 +109,7 @@ angular.module('ProjectCtrl', []).controller('ProjectController', function($scop
 		
 		
 		//Top 5 counties by highest MW
-		$http.get('/projects/getMWByCounty/5')
+		$http.get('/projects/getMWByCounty/5/15/4/2016')
 		.success(function(data){
 			for (var i = 0; i < data.length; i++) {
 				data[i].totalMW = data[i].totalMW.toFixed(2);
@@ -124,7 +124,7 @@ angular.module('ProjectCtrl', []).controller('ProjectController', function($scop
 		 });
 		
 		//Top 5 counties by highest project count
-		$http.get('/projects/getCountByCounty/5')
+		$http.get('/projects/getCountByCounty/5/15/4/2016')
 		.success(function(data){
 			$scope.CountByCounty = data;
 		})
