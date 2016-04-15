@@ -15,6 +15,7 @@
  <script type="text/javascript" src="libs/bootstrap/dist/js/bootstrap.min.js"></script>
  <script type="text/javascript" src="libs/angular/angular.min.js"></script>
  <script type="text/javascript" src="libs/angular-route/angular-route.min.js"></script>
+ <script type="text/javascript" src="libs/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
 <script src="https://www.amcharts.com/lib/3/amcharts.js"></script>
 <script src="https://www.amcharts.com/lib/3/pie.js"></script>
 <script src="https://www.amcharts.com/lib/3/themes/light.js"></script>
@@ -27,9 +28,32 @@
 <body ng-app = "energy_project" ng-controller = "ProjectController">
 <header style="margin-top: -10px;">  <div style="background-color:#2E64FE;"><h2 class="header"> Mercatus Analytics Dashboard </h2></div></header>
 
-
-		<div class ="mw_header"><h4>Total MW : {{totalMW}}</h4><h4>Total Projects : {{totalCount}}</h4>
+<div class="row">
+		<div class ="col-xs-6 mw_header"><h4>Total MW : {{totalMW}}</h4><h4>Total Projects : {{totalCount}}</h4>
 		</div>
+
+
+
+	<div class="col-xs-2 pull-left mw_header">
+		<h4>Select Date</h4>
+		<p class="input-group">
+			<input type="text"
+				   class="form-control"
+				   uib-datepicker-popup="dd/MM/yyyy"
+				   show-button-bar="false"
+				   ng-model="dateselected"
+				   is-open="dpOpenStatus.withoutRequired" />
+              <span class="input-group-btn">
+                <button type="button"
+						class="btn btn-default"
+						ng-click="setDpOpenStatus('withoutRequired', $event)">
+					<i class="glyphicon glyphicon-calendar"></i>
+				</button>
+              </span>
+		</p>
+
+	</div>
+</div>
 
 	<section style="float:left;width:45%">
 	

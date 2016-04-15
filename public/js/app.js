@@ -1,3 +1,3 @@
 // public/js/app.js
 
-angular.module('energy_project', ['ProjectCtrl']);
+angular.module('energy_project', ['ProjectCtrl','ui.bootstrap']);
