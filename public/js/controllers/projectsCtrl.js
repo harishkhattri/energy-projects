@@ -1,8 +1,6 @@
 //public/js/controllers/projectsCtrl.js
 
 angular.module('ProjectCtrl', []).controller('ProjectController', function($scope, $http,$filter) {
-	
-	//Total MW
 
 	var dt=new Date();
 	$scope.dateObj={};
@@ -15,6 +13,7 @@ angular.module('ProjectCtrl', []).controller('ProjectController', function($scop
 		return dtObj.day+'/'+dtObj.month+'/'+dtObj.year;
 	}
 
+	//Total MW
 	function getTotalMW(dtString) {
 		$http.get('/projects/getTotalMW/' + dtString)
 			.success(function (data) {
@@ -25,8 +24,8 @@ angular.module('ProjectCtrl', []).controller('ProjectController', function($scop
 					getAnalytics(dtString);
 				}
 				else{
-
-					getAnalytics(dtString)
+					getAnalytics(dtString);
+					getDocumentAnalytics();
 				}
 			})
 			.error(function (data) {
@@ -36,22 +35,21 @@ angular.module('ProjectCtrl', []).controller('ProjectController', function($scop
 	
 	var getAnalytics = function(dtString) {
 		//MW by Fuel Type
-
 		$http.get('/projects/getMWByFuelType/'+dtString)
-
-		.success(function(data){
-			$scope.MWByFuelType = [];
-			for (var i = 0; i < data.length; i++ ){
-				var fuelTypeData = {
-						"percentage": ((data[i].totalMW / $scope.totalMW) * 100).toFixed(2) ,
-						"fuelType": data[i].fuelType,
-						"actualMW" : Math.round(data[i].totalMW)
-				};
-				
-				$scope.MWByFuelType.push(fuelTypeData);
-
-			}
-				var chart = AmCharts.makeChart( "chartdiv", {
+			.success(function(data){
+				$scope.MWByFuelType = [];
+				for (var i = 0; i < data.length; i++ ){
+					var fuelTypeData = {
+							"percentage": ((data[i].totalMW / $scope.totalMW) * 100).toFixed(2) ,
+							"fuelType": data[i].fuelType,
+							"actualMW" : Math.round(data[i].totalMW)
+					};
+					
+					$scope.MWByFuelType.push(fuelTypeData);
+	
+				}
+	
+				AmCharts.makeChart( "chartdiv", {
 					"type": "pie",
 					"theme": "light",
 					"dataProvider":$scope.MWByFuelType,
@@ -63,32 +61,28 @@ angular.module('ProjectCtrl', []).controller('ProjectController', function($scop
 					"export": {
 						"enabled": true
 					}
-				} );
-		})
-		
-		.error(function(data) {
-				console.log('Error: ' + data);
-		});
+				});
+			})
+			.error(function(data) {
+					console.log('Error: ' + data);
+			});
 		
 		
 		//MW by Status
-
 		$http.get('/projects/getMWByStatus/'+dtString)
-
-		.success(function(data){
-			$scope.MWByStatus = [];
-			for (var i = 0; i < data.length; i++ ){
-				var mwByStatusData = {
-						"percentage": ((data[i].totalMW / $scope.totalMW) * 100).toFixed(2),
-						"status": data[i].status,
-						"actualMW" : Math.round(data[i].totalMW)
-				};
-				
-				$scope.MWByStatus.push(mwByStatusData);
-				
-
-			}
-				var chart2 = AmCharts.makeChart( "chartdiv2", {
+			.success(function(data){
+				$scope.MWByStatus = [];
+				for (var i = 0; i < data.length; i++ ){
+					var mwByStatusData = {
+							"percentage": ((data[i].totalMW / $scope.totalMW) * 100).toFixed(2),
+							"status": data[i].status,
+							"actualMW" : Math.round(data[i].totalMW)
+					};
+					
+					$scope.MWByStatus.push(mwByStatusData);
+				}
+	
+				AmCharts.makeChart( "chartdiv2", {
 					"type": "pie",
 					"theme": "light",
 					"dataProvider":$scope.MWByStatus,
@@ -100,82 +94,68 @@ angular.module('ProjectCtrl', []).controller('ProjectController', function($scop
 					"export": {
 						"enabled": true
 					}
-				} );
-		})
-		
-		.error(function(data) {
-				console.log('Error: ' + data);
-		 });
+				});
+			})
+			.error(function(data) {
+					console.log('Error: ' + data);
+			 });
 		
 		
 		 //Top 5 states by highest MW
-
 		$http.get('/projects/getMWByState/5/'+dtString)
-
-		.success(function(data){
-			for (var i = 0; i < data.length; i++) {
-				data[i].totalMW = data[i].totalMW.toFixed(2);
-				data[i].percentage = ((data[i].totalMW / $scope.totalMW) * 100).toFixed(2);
-			}
-
-			$scope.MWByState = data;
-		})
-		
-		.error(function(data) {
-				console.log('Error: ' + data);
-		 });
+			.success(function(data){
+				for (var i = 0; i < data.length; i++) {
+					data[i].totalMW = data[i].totalMW.toFixed(2);
+					data[i].percentage = ((data[i].totalMW / $scope.totalMW) * 100).toFixed(2);
+				}
+	
+				$scope.MWByState = data;
+			})
+			.error(function(data) {
+					console.log('Error: ' + data);
+			 });
 		
 		//Top 5 states by highest project count
-
 		$http.get('/projects/getCountByState/5/'+dtString)
-
-		.success(function(data){
-			$scope.projectByTop = data;
-		})
-		
-		.error(function(data) {
-				console.log('Error: ' + data);
-		 });
+			.success(function(data){
+				$scope.projectByTop = data;
+			})
+			.error(function(data) {
+					console.log('Error: ' + data);
+			 });
 		
 		
 		//Top 5 counties by highest MW
-
 		$http.get('/projects/getMWByCounty/5/'+dtString)
-
-		.success(function(data){
-			for (var i = 0; i < data.length; i++) {
-				data[i].totalMW = data[i].totalMW.toFixed(2);
-				data[i].percentage = ((data[i].totalMW / $scope.totalMW) * 100).toFixed(2);
-			}
-			
-			$scope.countyByTopMW = data;
-		})
-		
-		.error(function(data) {
-				console.log('Error: ' + data);
-		 });
+			.success(function(data){
+				for (var i = 0; i < data.length; i++) {
+					data[i].totalMW = data[i].totalMW.toFixed(2);
+					data[i].percentage = ((data[i].totalMW / $scope.totalMW) * 100).toFixed(2);
+				}
+				
+				$scope.countyByTopMW = data;
+			})
+			.error(function(data) {
+					console.log('Error: ' + data);
+			 });
 		
 		//Top 5 counties by highest project count
-
 		$http.get('/projects/getCountByCounty/5/'+dtString)
-
-		.success(function(data){
-			$scope.CountByCounty = data;
-		})
-		
-		.error(function(data) {
-				console.log('Error: ' + data);
-		 });
+			.success(function(data){
+				$scope.CountByCounty = data;
+			})
+			.error(function(data) {
+					console.log('Error: ' + data);
+			 });
 	};
-
-
-
 
 	$scope.dateselected = new Date();
 	$scope.dpOpenStatus = {};
+	
 	$scope.setDpOpenStatus = function(id) {
-		$scope.dpOpenStatus[id] = true
+		$scope.dpOpenStatus[id] = true;
 	};
+	
 	$scope.$watch("dateselected", function(newValue, oldValue) {
 		resetValues();
 		$scope.dateObj.day=$scope.dateselected.getDate();
@@ -185,7 +165,6 @@ angular.module('ProjectCtrl', []).controller('ProjectController', function($scop
 		var dateQuery=getDateString($scope.dateObj);
 
 		getTotalMW(dateQuery);
-
 	});
 
 	function resetValues(){
@@ -196,7 +175,32 @@ angular.module('ProjectCtrl', []).controller('ProjectController', function($scop
 		$scope.projectByTop="";
 		$scope.countyByTopMW="";
 		$scope.CountByCounty="";
-
 	}
 
+	var getDocumentAnalytics = function() {
+		// Get customer information statistics by document status
+		$http.get('/customers/getStatsByDocStatus')
+			.success(function(data) {
+				var totalDocs = 0;
+				
+				for (var i = 0; i < data.length; i++) {
+					totalDocs += data[i].count;
+				}
+				
+				data.totalCount = totalDocs;
+				$scope.statsByDocStatus = data;
+			})
+			.error(function(data) {
+				console.log('Error: ' + data);
+			});
+		
+		// Get data with customer information
+		$http.get('/customers/getData')
+			.success(function(data) {
+				$scope.dataWithCustomerInfo = data;
+			})
+			.error(function(data) {
+				console.log('Error: ' + data);
+			});
+	};
 });

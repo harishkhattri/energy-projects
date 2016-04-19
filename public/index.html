@@ -26,143 +26,226 @@
 </head>
 
 <body ng-app = "energy_project" ng-controller = "ProjectController">
-<header style="margin-top: -10px;">  <div style="background-color:#2E64FE;"><h2 class="header"> Mercatus Analytics Dashboard </h2></div></header>
+	<div style="background-color:#2E64FE;">
+		<h2 class="header"> Mercatus Analytics Dashboard </h2>
+	</div>
 
-<div class="row">
-		<div class ="col-xs-6 mw_header"><h4>Total MW : {{totalMW}}</h4><h4>Total Projects : {{totalCount}}</h4>
+	<div class="row">
+		<div class ="col-xs-6 mw_header">
+			<h4>Total MW : {{totalMW}}</h4>
+			<h4>Total Projects : {{totalCount}}</h4>
 		</div>
 
-
-
-	<div class="col-xs-2 pull-left mw_header">
-		<h4>Select Date</h4>
-		<p class="input-group">
-			<input type="text"
-				   class="form-control"
-				   uib-datepicker-popup="dd/MM/yyyy"
-				   show-button-bar="false"
-				   ng-model="dateselected"
-				   is-open="dpOpenStatus.withoutRequired" />
-              <span class="input-group-btn">
-                <button type="button"
-						class="btn btn-default"
-						ng-click="setDpOpenStatus('withoutRequired', $event)">
-					<i class="glyphicon glyphicon-calendar"></i>
-				</button>
-              </span>
-		</p>
-
-	</div>
-</div>
-
-	<section style="float:left;width:45%">
+		<div class="col-xs-2 pull-left mw_header">
+			<h4>Select Date</h4>
+			<p class="input-group">
+				<input type="text"
+					   class="form-control"
+					   uib-datepicker-popup="dd/MM/yyyy"
+					   show-button-bar="false"
+					   ng-model="dateselected"
+					   is-open="dpOpenStatus.withoutRequired" />
+	              <span class="input-group-btn">
+	                <button type="button"
+							class="btn btn-default"
+							ng-click="setDpOpenStatus('withoutRequired', $event)">
+						<i class="glyphicon glyphicon-calendar"></i>
+					</button>
+	              </span>
+			</p>
 	
-		<div id="chart"><h4 class="header" style="background: #2E64FE;color:white;">Fuel Type by MW (in %)</h4>
+		</div>
+	</div>
+	
+	<div class="row">
+		<div id="chart" class="col-xs-6"><h4 class="header" style="background: #2E64FE;color:white;">Fuel Type by MW (in %)</h4>
 			<div id="chartdiv"> </div>
 		</div>
 		
-		
-		<div style="border:1px solid #2E64FE; margin-top: 10%;">
-		    <h4 class="header" style="background: #2E64FE;color:white;">Fuel Type by MW</h4>
-			<table style=" width:80%">
-			    <tr>
-			        <th>Fuel Type</th>
-			        <th>MW</th>
-			        <th>MW(in %)</th>
-			    </tr>
-			    <tr ng-repeat="data in MWByFuelType">
-			        <td>{{data.fuelType}}</td>
-			        <td>{{data.actualMW}}</td>
-			         <td>{{data.percentage}}</td>
-			    </tr>
-			</table>
-		</div>
-		
-		<div style="border:1px solid #2E64FE;margin-top: 3%;">
-		    <h4 class="header" style="background: #2E64FE;color:white;">Top 5 States by Highest MW</h4>
-			<table style="width:80%">
-			    <tr>
-			        <th>State</th>
-			        <th>MW</th>
-			        <th>MW (in %)</th>
-			    </tr>
-			    <tr ng-repeat="data in MWByState">
-			        <td>{{data.state}}</td>
-			        <td>{{data.totalMW}}</td>
-			         <td>{{data.percentage}}</td>
-			    </tr>
-			</table>
-		</div>
-		
-		<div style="border:1px solid #2E64FE;margin-top: 3%;">
-		    <h4 class="header" style="background: #2E64FE;color:white;">Top 5 Counties by Highest MW</h4>
-			<table style=" width:80%">
-			    <tr>
-			        <th>County</th>
-			        <th>MW</th>
-			        <th>MW (in %)</th>
-			    </tr>
-			    <tr ng-repeat="data in countyByTopMW">
-			        <td>{{data.county}}</td>
-			        <td>{{data.totalMW}}</td>
-			        <td>{{data.percentage}}</td>
-			    </tr>
-			</table>
-		</div>
-		
-	</section>
-	
-	<section style="float:right;width:47%"> 
-		
-		<div id="chart2"><h4 class="header" style="background: #2E64FE;color:white;padding: 10px 0 10px 40%;">Status by MW (in %)</h4>
+		<div id="chart2" class="col-xs-6"><h4 class="header" style="background: #2E64FE;color:white;">Status by MW (in %)</h4>
 			<div id="chartdiv2" class="chart_wrapper"> </div>
 		</div> 
-		
-		
-		<div style="border:1px solid #2E64FE; margin-top: 10%;">
-		    <h4 class="header" style="background: #2E64FE;color:white;">Status by MW</h4>
-			<table style=" width:80%;margin-left:6%;">
-			    <tr>
-			        <th>Status</th>
-			        <th>MW</th>
-			        <th>MW(in %)</th>
-			    </tr>
-			    <tr ng-repeat="data in MWByStatus">
-			        <td>{{data.status}}</td>
-			        <td>{{data.actualMW}}</td>
-			         <td>{{data.percentage}}</td>
-			    </tr>
-			</table>
+	</div>
+	
+	<div class="row">
+		<div class="col-xs-6" style="margin-top: 50px;">
+			<div class="div-border" style="height: 605px;">
+			    <h4 class="header" style="background: #2E64FE;color:white;">Fuel Type by MW</h4>
+				<table class="table table-hover table-striped" style=" width:80%; margin-top: 5px;">
+				    <tr>
+				        <th>Fuel Type</th>
+				        <th>MW</th>
+				        <th>MW(in %)</th>
+				    </tr>
+				    <tr ng-repeat="data in MWByFuelType">
+				        <td>{{data.fuelType}}</td>
+				        <td>{{data.actualMW}}</td>
+				         <td>{{data.percentage}}</td>
+				    </tr>
+				</table>
+			</div>
 		</div>
 		
-		
-		<div style="margin-top: 29%;border:1px solid #2E64FE">
-		    <h4 class="header" style="background: #2E64FE;color:white;">Top 5 States by Highest Count</h4>
-			<table style=" width:80%;margin-left:6%;">
-			    <tr>
-			        <th>State</th>
-			        <th>Project Count</th>
-			    </tr>
-			    <tr ng-repeat="data in projectByTop">
-			        <td>{{data.state}}</td>
-			        <td>{{data.count}}</td>
-			    </tr>
-			</table>
+		<div class="col-xs-6" style="margin-top: 50px;">
+			<div class="div-border" style="height: 605px;">
+			    <h4 class="header" style="background: #2E64FE;color:white;">Status by MW</h4>
+				<table class="table table-hover table-striped" style=" width:80%;margin-left:6%; margin-top: 5px;">
+				    <tr>
+				        <th>Status</th>
+				        <th>MW</th>
+				        <th>MW(in %)</th>
+				    </tr>
+				    <tr ng-repeat="data in MWByStatus">
+				        <td>{{data.status}}</td>
+				        <td>{{data.actualMW}}</td>
+				         <td>{{data.percentage}}</td>
+				    </tr>
+				</table>
+			</div>
+		</div>
+	</div>
+	
+	<div class="row">
+		<div class="col-xs-6" style="margin-top: 10px;">
+			<div class="div-border" style="height: 275px;">
+			    <h4 class="header" style="background: #2E64FE;color:white;">Top 5 States by Highest MW</h4>
+				<table class="table table-hover table-striped" style="width:80%; margin-top: 5px;">
+				    <tr>
+				        <th>State</th>
+				        <th>MW</th>
+				        <th>MW (in %)</th>
+				    </tr>
+				    <tr ng-repeat="data in MWByState">
+				        <td>{{data.state}}</td>
+				        <td>{{data.totalMW}}</td>
+				         <td>{{data.percentage}}</td>
+				    </tr>
+				</table>
+			</div>
 		</div>
 		
-		<div style="border:1px solid #2E64FE;margin-top: 3%;">
-		    <h4 class="header" style="background: #2E64FE;color:white;">Top 5 Counties by Highest Count</h4>
-			<table style=" width:80%;;margin-left:6%;">
-			    <tr>
-			        <th>County</th>
-			        <th>Project Count</th>
-			    </tr>
-			    <tr ng-repeat="data in CountByCounty">
-			        <td>{{data.county}}</td>
-			        <td>{{data.count}}</td>
-			    </tr>
-			</table>
+		<div class="col-xs-6" style="margin-top: 10px;">
+			<div class="div-border" style="height: 275px;">
+			    <h4 class="header" style="background: #2E64FE;color:white;">Top 5 States by Highest Count</h4>
+				<table class="table table-hover table-striped" style=" width:80%;margin-left:6%; margin-top: 5px;">
+				    <tr>
+				        <th>State</th>
+				        <th>Project Count</th>
+				    </tr>
+				    <tr ng-repeat="data in projectByTop">
+				        <td>{{data.state}}</td>
+				        <td>{{data.count}}</td>
+				    </tr>
+				</table>
+			</div>
+		</div>
+	</div>
+	
+	<div class="row">
+		<div class="col-xs-6" style="margin-top: 10px;">
+			<div class="div-border" style="height: 275px;">
+			    <h4 class="header" style="background: #2E64FE;color:white;">Top 5 Counties by Highest MW</h4>
+				<table class="table table-hover table-striped" style=" width:80%; margin-top: 5px;">
+				    <tr>
+				        <th>County</th>
+				        <th>MW</th>
+				        <th>MW (in %)</th>
+				    </tr>
+				    <tr ng-repeat="data in countyByTopMW">
+				        <td>{{data.county}}</td>
+				        <td>{{data.totalMW}}</td>
+				        <td>{{data.percentage}}</td>
+				    </tr>
+				</table>
+			</div>
 		</div>
 		
-	</section>
+		<div class="col-xs-6" style="margin-top: 10px;">
+			<div class="div-border" style="height: 275px;">
+			    <h4 class="header" style="background: #2E64FE;color:white;">Top 5 Counties by Highest Count</h4>
+				<table class="table table-hover table-striped" style=" width:80%;margin-left:6%; margin-top: 5px;">
+				    <tr>
+				        <th>County</th>
+				        <th>Project Count</th>
+				    </tr>
+				    <tr ng-repeat="data in CountByCounty">
+				        <td>{{data.county}}</td>
+				        <td>{{data.count}}</td>
+				    </tr>
+				</table>
+			</div>
+		</div>
+	</div>
+	
+	<div style="background-color:#2E64FE;margin-top: 10px;">
+		<h2 class="header"> Documents Analytics </h2>
+	</div>
+	
+	<div class="row">
+		<div class ="col-xs-7 mw_header">
+			<h3>Customer Information Statistics as on April 15, 2016</h3>
+			<h4>Total Interconnection Queue Entries : 1280</h4>
+			<h4>Total Documents Found : {{statsByDocStatus.totalCount}}</h4>
+			<h4 ng-repeat="stats in statsByDocStatus" style="padding-left: 25px;">
+				<span ng-if="stats.docStatus === 'Found' || stats.docStatus === 'Not Found'">
+					Name and Location 
+				</span>
+
+				{{stats.docStatus}}
+				<span ng-if="stats.docStatus === 'Found' || stats.docStatus === 'Not Found'">
+					 in
+				</span>
+
+				: {{stats.count}}
+			</h4>
+		</div>
+	</div>
+	
+	<div class="row">
+		<div class="col-xs-12">
+		<table class="table table-hover table-striped" style="margin-left: 5px;">
+			<tr>
+				<th>Queue</th>
+				<th>Queue Date</th>
+				<th>PJM Substation</th>
+				<th>MW</th>
+				<th>MW In Service</th>
+				<th>Status</th>
+				<th>State</th>
+				<th>County</th>
+				<th>Projected In Service</th>
+				<th>Fuel Type</th>
+				<th>ISA</th>
+				<th>Document Status</th>
+				<th>Name</th>
+				<th>Location</th>
+			</tr>
+			<tr ng-repeat="data in dataWithCustomerInfo">
+				<td>{{data.queue}}</td>
+				<td>{{data.queueDate}}</td>
+				<td>{{data.projectName}}</td>
+				<td>{{data.mw}}</td>
+				<td>
+					<p ng-if="data.mwInService === 's'"></p>
+					<p ng-if="data.mwInService !== 's'">{{data.mwInService}}</p>
+				</td>
+				<td>{{data.status}}</td>
+				<td>{{data.state}}</td>
+				<td>{{data.county}}</td>
+				<td>{{data.inServiceDate}}</td>
+				<td>{{data.fuelType}}</td>
+				<td>
+					<p ng-if="data.isaStatus === 's'"></p>
+					<p ng-if="data.isaStatus === 'notrequired'">Not Required</p>
+					<p ng-if="data.isaStatus !== 's' && data.isaStatus !== 'notrequired'">
+						<a href="{{data.isaStatus}}" target="_blank">Open Document</a>
+					</p>
+				</td>
+				<td>{{data.docStatus}}</td>
+				<td>{{data.custName}}</td>
+				<td>{{data.custLocation}}</td>
+			</tr>
+		</table>
+		</div>
+	</div>
 </body>

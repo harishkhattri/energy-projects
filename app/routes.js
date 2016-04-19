@@ -2,6 +2,7 @@
 // Defines various routes for server and front end
 
 var Projects = require("./models/project");
+var Customers = require("./models/cust_info");
 
 module.exports = function(app) {
 	// Server routes
@@ -160,6 +161,96 @@ module.exports = function(app) {
 					
 					response.send(result);
 				});
+	});
+	
+	// Get statistics based on document status
+	app.get('/customers/getStatsByDocStatus', function(request, response) {
+		Customers.aggregate(
+				{ $group: {_id: {docStatus: "$docStatus"}, count: {$sum: 1} } },
+				{ $project: {_id: 0, docStatus: "$_id.docStatus", count: 1} },
+				{ $sort: {docStatus: 1} },
+				function(error, result) {
+					if (error) {
+						response.send(error);
+					}
+					
+					response.send(result);
+				});
+	});
+	
+	// Get interconnection data with customer info
+	app.get('/customers/getData', function(request, response) {
+		Projects.find({"dataEntryDate.day": 15, "dataEntryDate.month": 4, "dataEntryDate.year": 2016}, null, {sort: {queueNumber: 1}},
+				function(error, projects) {
+			if (error) {
+				response.send(error);
+			}
+			
+			var data = [];
+			
+			var goNext = function(counter) {
+				counter++;
+				
+				if (counter < projects.length) {
+					getData(counter);
+				} else {
+					response.json(data);
+				}
+			};
+			
+			// Recursive function to handle asynchronous calls to fetch additional information from database
+			var getData = function(counter) {
+				var project = projects[counter];
+				var projectData = {
+						queue: project.queueNumber,
+						queueDate: project.attachNRecd.month + '/' + project.attachNRecd.day + '/' + project.attachNRecd.year,
+						projectName: project.projectName,
+						mw: project.mw,
+						mwInService: project.mwInService,
+						status: project.status,
+						state: project.state,
+						county: project.county,
+						inServiceDate: project.inServiceDate.year + ' ' + project.inServiceDate.quarter,
+						fuelType: project.fuelType,
+						isaStatus: project.isaStatus
+				};
+				
+				if (project.isaStatus === 's' || project.isaStatus === 'notrequired') {
+					data.push(projectData);
+					goNext(counter);
+				} else {
+					Customers.find({fileName: project.isaFileName}, function(err, customers) {
+						if (err) {
+							response.send(err);
+						}
+						
+						if (customers.length > 0) {
+							var isaFileUrl = "http://www.pjm.com/pub/planning/project-queues/";
+							
+							if (customers[0].fileType === 'isa') {
+								isaFileUrl += "isa/" + customers[0].fileName;
+							} else {
+								isaFileUrl += "wmpa/" + customers[0].fileName;
+							}
+							
+							projectData.isaStatus = isaFileUrl;
+							projectData.docStatus = customers[0].docStatus;
+							projectData.custName = customers[0].name;
+							projectData.custLocation = customers[0].location;
+						}
+						
+						data.push(projectData);
+						goNext(counter);
+					});
+				}
+			};
+			
+			if (projects.length > 0) {
+				getData(0);
+			} else {
+				response.json(data);
+			}
+		});
 	});
 	
 	// Frontend routes

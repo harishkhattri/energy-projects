@@ -11,6 +11,7 @@ var load_customer_data = function() {
 		var customer = custData[i];
 		var customerName = "";
 		var customerLocation = "";
+		var docStatus = "";
 		
 		if (customer.results[0].keyword.startsWith('Location')) {
 			if (customer.results[0].text.length > 0) {
@@ -38,13 +39,24 @@ var load_customer_data = function() {
 			}
 		}
 		
+		var fileType = (customer.fileName.split('.')[0].endsWith('wmpa') ? 'wmpa' : 'isa');
+		
+		if (!customer.fileValid) {
+			docStatus = "Document Corrupted";
+		} else if (!customer.fileSearchable) {
+			docStatus = "Scanned Document";
+		} else if (customer.results[0].text.length === 0 && customer.results[1].text.length == 0) {
+			docStatus = "Not Found";
+		} else {
+			docStatus = "Found";
+		}
+		
 		var customerData = {
 				name: customerName,
 				location: customerLocation,
 				fileName: customer.fileName,
-				fileType: customer.fileName.split('.')[0].endsWith('wmpa') ? 'wmpa' : 'isa',
-				fileValid: customer.fileValid,
-				fileScanned: !customer.fileSearchable
+				fileType: fileType,
+				docStatus: docStatus
 		};
 		
 		allCustomersData.push(customerData);
