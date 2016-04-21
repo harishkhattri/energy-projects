@@ -13,7 +13,7 @@ var load_customer_data = function() {
 		var customerLocation = "";
 		var docStatus = "";
 		
-		if (customer.results[0].keyword.startsWith('Location')) {
+		if (customer.results[0].keyword.indexOf('Location') !== -1) {
 			if (customer.results[0].text.length > 0) {
 				customerLocation = customer.results[0].text[0];
 			} else {
