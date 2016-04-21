@@ -73,9 +73,14 @@ angular.module('ProjectCtrl', []).controller('ProjectController', function($scop
 		$http.get('/projects/getMWByStatus/'+dtString)
 			.success(function(data){
 				$scope.MWByStatus = [];
+				var totalMW = 0;
+				for (var j = 0; j < data.length; j++) {
+					totalMW += data[j].totalMW;
+				}
+				
 				for (var i = 0; i < data.length; i++ ){
 					var mwByStatusData = {
-							"percentage": ((data[i].totalMW / $scope.totalMW) * 100).toFixed(2),
+							"percentage": ((data[i].totalMW / totalMW) * 100).toFixed(2),
 							"status": data[i].status,
 							"actualMW" : Math.round(data[i].totalMW)
 					};
