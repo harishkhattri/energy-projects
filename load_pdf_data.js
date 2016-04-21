@@ -39,7 +39,7 @@ var load_customer_data = function() {
 			}
 		}
 		
-		var fileType = (customer.fileName.split('.')[0].endsWith('wmpa') ? 'wmpa' : 'isa');
+		var fileType = ((customer.fileName.split('.')[0].indexOf('wmpa') !== -1) ? 'wmpa' : 'isa');
 		
 		if (!customer.fileValid) {
 			docStatus = "Document Corrupted";
