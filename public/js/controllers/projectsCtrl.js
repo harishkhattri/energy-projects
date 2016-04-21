@@ -22,6 +22,7 @@ angular.module('ProjectCtrl', []).controller('ProjectController', function($scop
 					$scope.totalCount = data[0].count;
 
 					getAnalytics(dtString);
+					getDocumentAnalytics();
 				}
 				else{
 					getAnalytics(dtString);
